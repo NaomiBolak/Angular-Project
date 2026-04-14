@@ -1,0 +1,197 @@
+.nani-dialog {
+  position: relative;
+  background: var(--white);
+  max-width: 860px;
+  width: 100%;
+  direction: rtl;
+  font-family: 'Jost', sans-serif;
+  overflow: hidden;
+}
+
+.nani-dialog-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  background: var(--cream-dark);
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nani-dialog-close:hover {
+  background: var(--bronze-dark);
+  color: var(--cream);
+  border-color: var(--bronze-dark);
+}
+
+.nani-dialog-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.nani-dialog-img {
+  overflow: hidden;
+  max-height: 520px;
+}
+
+.nani-dialog-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.nani-dialog-img:hover img {
+  transform: scale(1.04);
+}
+
+.nani-dialog-info {
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+}
+
+.nani-dialog-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--bronze-light);
+  margin-bottom: 14px;
+}
+
+.nani-dialog-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--bronze-dark);
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.nani-dialog-divider {
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  margin: 18px 0;
+}
+
+.nani-dialog-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-muted);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.nani-dialog-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--bronze);
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.nani-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.nani-dialog-btn-primary {
+  background: var(--bronze-dark);
+  color: var(--cream);
+  border: none;
+  padding: 15px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nani-dialog-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(101%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.nani-dialog-btn-primary:hover { color: var(--ink); }
+.nani-dialog-btn-primary:hover::before { transform: translateX(0); }
+.nani-dialog-btn-primary i,
+.nani-dialog-btn-primary span { position: relative; z-index: 1; }
+
+.nani-dialog-btn-outline {
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--border-strong);
+  padding: 13px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.nani-dialog-btn-outline:hover {
+  border-color: var(--bronze);
+  color: var(--bronze-dark);
+  background: var(--cream-dark);
+}
+
+.nani-dialog-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.nani-dialog-meta span {
+  font-size: 12px;
+  color: var(--taupe);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.nani-dialog-meta i {
+  color: var(--bronze-light);
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .nani-dialog-inner { grid-template-columns: 1fr; }
+  .nani-dialog-img { max-height: 260px; }
+  .nani-dialog-info { padding: 28px 24px; border-right: none; border-top: 1px solid var(--border); }
+  .nani-dialog-name { font-size: 26px; }
+}

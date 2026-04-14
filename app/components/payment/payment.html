@@ -1,0 +1,37 @@
+<div class="payment-container">
+  <h1>טופס תשלום</h1>
+
+  <form (ngSubmit)="onSubmit()" #paymentForm="ngForm">
+    
+    <div class="form-group">
+      <label for="name">שם מלא:</label>
+      <input type="text" id="name" name="fullName" [(ngModel)]="paymentData.fullName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="address">כתובת למשלוח:</label>
+      <input type="text" id="address" name="address" [(ngModel)]="paymentData.address" required>
+    </div>
+
+    <div class="form-group">
+      <label for="cardNumber">מספר כרטיס:</label>
+      <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="paymentData.cardNumber" required>
+    </div>
+
+    <div class="form-group">
+      <label for="expiryDate">תאריך תפוגה:</label>
+      <input type="text" id="expiryDate" name="expirationDate" [(ngModel)]="paymentData.expirationDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" [(ngModel)]="paymentData.cvv" required>
+    </div>
+
+    <div class="payment-summary">
+      <h3>סכום לחיוב: {{ cartService.getTotalPrice() | currency:'USD' }}</h3>
+    </div>
+
+    <button type="submit" [disabled]="paymentForm.invalid">שלם עכשיו</button>
+  </form>
+</div>

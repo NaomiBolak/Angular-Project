@@ -1,0 +1,32 @@
+<div class="page-layout">
+  <div class="products-section">
+    <h1>מוצרים</h1>
+    <div *ngFor="let product of products" class="product-card">
+      <div (click)="openProductDialog(product)">
+        <img [src]="product.img" [alt]="product.name" />
+        <h3>{{ product.name }}</h3>
+        <p [style.color]="product.category | categoryColor">{{ product.category }}</p>
+        <p>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</p>
+      </div>
+      <button (click)="addToCart(product)">הוסף לסל</button>
+    </div>
+  </div>
+
+  <div class="cart-section">
+    <h2>סל קניות</h2>
+    <ng-container *ngIf="(cart$ | async) as currentCart">
+      <p *ngIf="currentCart.length === 0">הסל ריק</p>
+      
+      <div *ngFor="let p of currentCart" class="cart-item">
+        <h4>{{ p.name }}</h4>
+        <img [src]="p.img" [alt]="p.name" />
+        <p>{{ p.price | currency:'USD':'symbol':'1.2-2' }} (כמות: {{ p.quantity }})</p>
+      </div>
+
+      <div class="cart-footer" *ngIf="currentCart.length > 0">
+        <h3>סה"כ לתשלום: {{ totalCartPrice | currency:'USD' }}</h3>
+        <button routerLink="/payment">מעבר לתשלום</button>
+      </div>
+    </ng-container>
+  </div>
+</div>

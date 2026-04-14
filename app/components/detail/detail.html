@@ -1,0 +1,37 @@
+<div class="nani-dialog" *ngIf="product">
+
+  <button class="nani-dialog-close" (click)="close()">
+    <i class="bi bi-x"></i>
+  </button>
+
+  <div class="nani-dialog-inner">
+
+    <div class="nani-dialog-img">
+      <img [src]="product.img" [alt]="product.name">
+    </div>
+
+    <div class="nani-dialog-info">
+      <p class="nani-dialog-eyebrow">NANI Collection</p>
+      <h2 class="nani-dialog-name">{{ product.name }}</h2>
+      <div class="nani-dialog-divider"></div>
+      <p class="nani-dialog-desc">{{ product.description }}</p>
+      <p class="nani-dialog-price">{{ product.price | currency:'USD' }}</p>
+
+      <div class="nani-dialog-actions">
+        <button class="nani-dialog-btn-primary" (click)="addToCart()">
+          <i class="bi bi-bag-plus"></i>
+          <span>הוסף לסל</span>
+        </button>
+        <button class="nani-dialog-btn-outline" (click)="close()">
+          <span>המשך בקנייה</span>
+        </button>
+      </div>
+
+      <div class="nani-dialog-meta">
+        <span><i class="bi bi-truck"></i> משלוח חינם מ-$150</span>
+        <span><i class="bi bi-arrow-return-left"></i> החזרה תוך 30 יום</span>
+      </div>
+    </div>
+
+  </div>
+</div>

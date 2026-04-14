@@ -1,0 +1,134 @@
+<div class="home-page">
+
+  <section class="nani-hero">
+    <div class="nani-hero-overlay"></div>
+    <div class="nani-hero-img-side">
+      <img src="img/image.png" alt="NANI Collection">
+    </div>
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center">
+        <div class="col-12 col-lg-8 text-center nani-hero-content">
+          <p class="nani-hero-eyebrow">קולקציית אביב / קיץ 2025</p>
+          <h1 class="nani-hero-title">הלבישי את<br><em>הגרסה הטובה</em><br>של עצמך</h1>
+          <p class="nani-hero-sub">עיצובים בלעדיים לאישה — אלגנטיות ללא פשרות</p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+            <a routerLink="/products" class="nani-btn-primary"><span>גלי את הקולקציה</span></a>
+            <a routerLink="/about" class="nani-btn-outline"><span>הסיפור שלנו</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nani-features">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-6 col-md-3 nani-feature-item">
+          <i class="bi bi-truck"></i>
+          <span>משלוח חינם מ-$150</span>
+        </div>
+        <div class="col-6 col-md-3 nani-feature-item">
+          <i class="bi bi-arrow-return-left"></i>
+          <span>החזרה תוך 30 יום</span>
+        </div>
+        <div class="col-6 col-md-3 nani-feature-item">
+          <i class="bi bi-shield-check"></i>
+          <span>תשלום מאובטח</span>
+        </div>
+        <div class="col-6 col-md-3 nani-feature-item">
+          <i class="bi bi-headset"></i>
+          <span>שירות 24/6</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nani-categories">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-12 col-md-7">
+          <div class="nani-cat-card nani-cat-main">
+            <img src="img/image.png" alt="חולצה לבנה קלאסית" class="nani-cat-img">
+            <div class="nani-cat-overlay"></div>
+            <div class="nani-cat-body">
+              <p class="nani-cat-label">חדש</p>
+              <h3>חולצות קלאסיות</h3>
+              <a routerLink="/products" class="nani-cat-link">קנה עכשיו <i class="bi bi-arrow-left"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-5 d-flex flex-column gap-3">
+          <div class="nani-cat-card nani-cat-secondary">
+            <img src="img/image.png" alt="חולצה לבנה קלאסית" class="nani-cat-img">
+            <div class="nani-cat-overlay"></div>
+            <div class="nani-cat-body">
+              <p class="nani-cat-label">טרנד</p>
+              <h3>אביזרים</h3>
+              <a routerLink="/products" class="nani-cat-link">קנה עכשיו <i class="bi bi-arrow-left"></i></a>
+            </div>
+          </div>
+          <div class="nani-cat-card nani-cat-tertiary">
+            <img src="img/image.png" alt="חולצה לבנה קלאסית" class="nani-cat-img">
+            <div class="nani-cat-overlay"></div>
+            <div class="nani-cat-body">
+              <p class="nani-cat-label">בסייל</p>
+              <h3>חצאיות ועליוניות</h3>
+              <a routerLink="/products" class="nani-cat-link">קנה עכשיו <i class="bi bi-arrow-left"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <div class="container">
+      <div class="nani-section-header text-center">
+        <p class="nani-section-eyebrow">הנבחרים שלנו</p>
+        <h2>מוצרים נבחרים</h2>
+        <div class="nani-divider"></div>
+      </div>
+
+      <div class="row g-4 products-grid">
+        <div class="col-6 col-md-4 col-lg-3"
+             *ngFor="let product of (products$ | async)?.slice(0, 4)">
+          <div class="product-card h-100">
+            <div class="nani-card-img-wrap">
+              <img [src]="product.img" [alt]="product.name">
+              <div class="nani-card-hover-actions">
+                <a routerLink="/products" class="nani-quick-view">
+                  <i class="bi bi-eye"></i> צפייה מהירה
+                </a>
+              </div>
+            </div>
+            <div class="nani-card-body">
+              <h4>{{ product.name }}</h4>
+              <p>{{ product.price | currency:'USD' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a routerLink="/products" class="nani-btn-primary"><span>לכל הקולקציה</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="nani-newsletter">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+          <p class="nani-section-eyebrow">הישארי מעודכנת</p>
+          <h2>הצטרפי לעולם NANI</h2>
+          <p class="nani-newsletter-sub">קבלי ראשונה עדכונים על קולקציות חדשות, מבצעים בלעדיים וטיפים לסטיילינג</p>
+          <div class="nani-newsletter-form d-flex gap-2 justify-content-center flex-wrap mt-4">
+            <input type="email" placeholder="כתובת האימייל שלך" class="nani-email-input">
+            <button class="nani-btn-primary"><span>הרשמי</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

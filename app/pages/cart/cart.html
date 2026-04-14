@@ -1,0 +1,58 @@
+<div class="cart-page">
+  <div class="cart-container">
+    <h1>סל הקניות</h1>
+    
+    <div class="cart-content" *ngIf="(cart$ | async)?.length">
+      <div class="cart-items">
+        
+        <div *ngFor="let item of cart$ | async" class="cart-item-row" style="border-bottom: 1px solid #ccc; padding: 10px; display: flex; align-items: center; gap: 20px;">
+          <img [src]="item.img" [alt]="item.name" width="80">
+          
+          <div class="item-info">
+            <h3>{{ item.name }}</h3>
+            <p>מחיר: {{ item.price | currency:'USD' }}</p>
+          </div>
+
+          <div class="quantity-controls">
+            <button (click)="minusOne(item)">-</button>
+            <span> {{ item.quantity }} </span>
+            <button (click)="plusOne(item)">+</button>
+          </div>
+
+          <button (click)="removeItem(item)" class="btn-remove">הסר</button>
+        </div>
+
+      </div>
+      
+      <div class="cart-summary">
+        <h2>סיכום הזמנה</h2>
+        
+        <div class="summary-row">
+          <span>סכום ביניים:</span>
+          <span>{{ totalCartPrice$ | async | currency:'USD' }}</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>משלוח:</span>
+          <span>חינם</span>
+        </div>
+        
+        <hr>
+
+        <div class="summary-row total">
+          <span>סה״כ:</span>
+          <span>{{ totalCartPrice$ | async | currency:'USD' }}</span>
+        </div>
+        
+        <button class="btn-checkout" routerLink="/payment">המשך לתשלום</button>
+        <button class="btn-continue" routerLink="/products">המשך בקנייה</button>
+      </div>
+    </div> 
+
+    <div class="empty-cart" *ngIf="!(cart$ | async)?.length">
+      <p>הסל שלך ריק</p>
+      <button class="btn-continue" routerLink="/products">חזור למוצרים</button>
+    </div>
+
+  </div>
+</div>

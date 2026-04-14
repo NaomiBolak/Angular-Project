@@ -1,0 +1,26 @@
+<div class="tracking-container">
+  <h2>יומן פעולות משתמשים</h2>
+  
+  <button (click)="toggleSort()">
+    מיון לפי תאריך: {{ isAscending ? 'מהישן לחדש ↑' : 'מהחדש לישן ↓' }}
+  </button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>תאריך ושעה</th>
+        <th>פעולה</th>
+        <th>מוצר</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let act of actions">
+        <td>{{ act.timestamp | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td>{{ act.actionName }}</td>
+        <td>{{ act.productName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="actions.length === 0">עדיין לא בוצעו פעולות באתר.</p>
+</div>

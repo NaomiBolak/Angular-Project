@@ -1,0 +1,200 @@
+.payment-container {
+  max-width: 540px;
+  margin: 70px auto;
+  padding: 20px;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.payment-container h1 {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bronze-dark);
+  margin-bottom: 8px;
+}
+
+/* Gold divider */
+.payment-container h1::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 16px auto 36px;
+}
+
+/* ══════════════════════════════
+   FORM CARD
+══════════════════════════════ */
+form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 48px 44px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+/* Corner ornaments */
+form::before,
+form::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+
+form::before {
+  top: 12px;
+  right: 12px;
+  border-width: 1px 1px 0 0;
+}
+
+form::after {
+  bottom: 12px;
+  left: 12px;
+  border-width: 0 0 1px 1px;
+}
+
+/* ══════════════════════════════
+   FORM GROUP
+══════════════════════════════ */
+.form-group {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  width: 100%;
+  background: var(--cream);
+  border: none;
+  border-bottom: 1px solid var(--border-strong);
+  padding: 12px 4px;
+  color: var(--ink);
+  font-size: 15px;
+  font-family: 'Jost', sans-serif;
+  transition: var(--transition);
+  outline: none;
+  border-radius: 0;
+}
+
+.form-group input::placeholder {
+  color: var(--taupe-light);
+  font-style: italic;
+}
+
+.form-group input:focus {
+  border-bottom-color: var(--gold);
+  background: var(--gold-pale);
+  padding-right: 8px;
+}
+
+.form-group input:valid:not(:placeholder-shown) {
+  border-bottom-color: var(--success);
+}
+
+/* ══════════════════════════════
+   PAYMENT SUMMARY
+══════════════════════════════ */
+.payment-summary {
+  background: var(--champagne);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  padding: 20px 24px;
+  margin: 32px 0;
+  text-align: center;
+  position: relative;
+}
+
+.payment-summary::before {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  padding: 0 8px;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.payment-summary h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--bronze-dark);
+}
+
+/* ══════════════════════════════
+   SUBMIT BUTTON
+══════════════════════════════ */
+button[type="submit"] {
+  width: 100%;
+  background: var(--bronze-dark);
+  color: var(--cream);
+  border: none;
+  padding: 18px;
+  font-size: 12px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(101%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  color: var(--ink);
+  box-shadow: var(--shadow-gold);
+}
+
+button[type="submit"]:hover:not(:disabled)::before {
+  transform: translateX(0);
+}
+
+button[type="submit"] {
+  position: relative;
+  z-index: 1;
+}
+
+button[type="submit"]::before {
+  z-index: 0;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 600px) {
+  .payment-container { margin: 36px auto; }
+  form { padding: 32px 24px; }
+  .payment-container h1 { font-size: 32px; }
+}
